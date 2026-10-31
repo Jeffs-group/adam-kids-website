@@ -17,7 +17,7 @@
 - [x] **Phase 2: Home (/)**
   - [x] Hero with chip, masked word H1, buttons, floating illustration, mouse parallax, WaveDivider
   - [x] About preview with clip-path reveal and wiggling sage badge
-  - [x] Programs overview with 4 pastel cards (Playgroup, Nursery, Junior KG, Senior KG)
+  - [x] Programs overview with 4 pastel cards (Playgroup, Nursery, LKG, UKG)
   - [x] MontessoriWay dark brown section with wavy dividers and 2x2 cards
   - [x] Gallery "Moments from our days" bento grid
   - [x] CTABanner ("Come see where little ones flourish")

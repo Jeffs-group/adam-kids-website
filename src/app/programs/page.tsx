@@ -10,7 +10,7 @@ import CTABanner from "@/components/ui/CTABanner";
 import { programsData } from "@/data/programs";
 
 export const metadata: Metadata = {
-  title: "Programs | Day Care to Senior KG",
+  title: "Programs | Day Care to UKG",
   description:
     "Explore our authentic Montessori programs in Shanthinagar, Bangalore: Day Care (1.5-6 yrs), Pre-School (2-3 yrs), Nursery (3-4 yrs), LKG (4-5 yrs), and UKG (5-6 yrs).",
 };

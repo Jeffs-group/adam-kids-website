@@ -37,14 +37,16 @@ export const homeContent = {
       {
         number: "01",
         title: "Playgroup",
+        age: "1.5 – 3 Years",
         color: "sage" as const,
         description:
           "A gentle introduction to learning through joyful sensory play, music, and friendly social exploration for the youngest minds.",
-        href: "/programs#program-playgroup",
+        href: "/programs#program-preschool",
       },
       {
         number: "02",
         title: "Nursery",
+        age: "3 – 4 Years",
         color: "sky" as const,
         description:
           "Fostering early language, motor coordination, and curiosity with tactile Montessori equipment in an encouraging setting.",
@@ -52,7 +54,8 @@ export const homeContent = {
       },
       {
         number: "03",
-        title: "Junior KG",
+        title: "LKG",
+        age: "4 – 5 Years",
         color: "butter" as const,
         description:
           "Encouraging early reading, number recognition, logical thinking, and cooperative hands-on classroom projects.",
@@ -60,7 +63,8 @@ export const homeContent = {
       },
       {
         number: "04",
-        title: "Senior KG",
+        title: "UKG",
+        age: "5 – 6 Years",
         color: "blush" as const,
         description:
           "Preparing confident, independent thinkers ready for formal schooling through foundational literacy and problem-solving.",

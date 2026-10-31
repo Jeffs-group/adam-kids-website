@@ -22,7 +22,7 @@ export default function Footer({ variant }: FooterProps = {}) {
               aria-label="Adam Kids International Montessori School"
             >
               <Image
-                src="/images/logo.svg"
+                src="/images/logo/Adam Kids logo enhanced.png"
                 alt="Adam Kids International Montessori School"
                 width={160}
                 height={58}
@@ -75,8 +75,8 @@ export default function Footer({ variant }: FooterProps = {}) {
                 { label: "Day Care (1.5 – 6 yrs)", href: "/programs#program-daycare" },
                 { label: "Pre-School (2 – 3 yrs)", href: "/programs#program-preschool" },
                 { label: "Nursery (3 – 4 yrs)", href: "/programs#program-nursery" },
-                { label: "Junior KG / LKG (4 – 5 yrs)", href: "/programs#program-lkg" },
-                { label: "Senior KG / UKG (5 – 6 yrs)", href: "/programs#program-ukg" },
+                { label: "LKG (4 – 5 yrs)", href: "/programs#program-lkg" },
+                { label: "UKG (5 – 6 yrs)", href: "/programs#program-ukg" },
               ].map((prog) => (
                 <li key={prog.label}>
                   <Link
@@ -103,9 +103,13 @@ export default function Footer({ variant }: FooterProps = {}) {
                   href={schoolContact.googleMapsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-caramel transition-colors leading-snug"
+                  className="hover:text-caramel transition-colors leading-snug group"
+                  title="Open Adam Kids School on Google Maps"
                 >
-                  {schoolContact.fullAddress}
+                  <span>{schoolContact.fullAddress}</span>
+                  <span className="block text-xs font-bold text-caramel/80 group-hover:text-caramel mt-0.5">
+                    View on Google Maps ↗
+                  </span>
                 </a>
               </li>
               <li className="flex items-center gap-3">
@@ -150,10 +154,19 @@ export default function Footer({ variant }: FooterProps = {}) {
           <p>
             © {schoolContact.year} {schoolContact.name}. All rights reserved.
           </p>
-          <div className="flex items-center gap-1.5 text-brown-900/75">
-            <span>Made with</span>
-            <Heart className="w-3.5 h-3.5 text-caramel fill-caramel inline" />
-            <span>for little explorers in Shanthinagar, Bangalore.</span>
+          <div className="flex flex-col sm:flex-row items-center gap-1.5 sm:gap-2 text-brown-900/75 text-center sm:text-right">
+            <span className="inline-flex items-center gap-1.5">
+              <span>Made with</span>
+              <Heart className="w-3.5 h-3.5 text-caramel fill-caramel inline" />
+              <span>for little explorers in Shanthinagar, Bangalore.</span>
+            </span>
+            <span className="hidden sm:inline text-brown-900/30">|</span>
+            <span>
+              Developed by{" "}
+              <span className="font-semibold text-brown-900">
+                Bethlix Technologies Pvt Ltd
+              </span>
+            </span>
           </div>
         </div>
       </div>

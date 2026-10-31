@@ -5,9 +5,9 @@ import Reveal from "@/components/ui/Reveal";
 import { schoolContact } from "@/data/nav";
 
 export default function CampusMapSection() {
-  // Safe responsive Google Maps embed URL
+  // Safe responsive Google Maps embed URL centered on Adam Kids School, Shanthinagar
   const mapSrc =
-    "https://maps.google.com/maps?q=Shanthinagar,+Bangalore,+Karnataka,+India&t=&z=15&ie=UTF8&iwloc=&output=embed";
+    "https://maps.google.com/maps?q=Adam+Kids+School,+Shanthinagar,+Bengaluru&t=&z=17&ie=UTF8&iwloc=&output=embed";
 
   return (
     <section id="map" className="py-20 md:py-32 bg-cream">

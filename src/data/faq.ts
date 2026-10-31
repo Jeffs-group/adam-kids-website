@@ -15,7 +15,7 @@ export const faqItems: FAQItem[] = [
     id: "age-eligibility",
     question: "What are the age criteria for the different programs?",
     answer:
-      "Our programs accommodate children from 1.5 to 6 years of age. Day Care welcomes children aged 1.5 to 6 years; Pre-School is for 2 to 3 years; Nursery is for 3 to 4 years; LKG (Junior KG) is for 4 to 5 years; and UKG (Senior KG) is for 5 to 6 years.",
+      "Our programs accommodate children from 1.5 to 6 years of age. Day Care welcomes children aged 1.5 to 6 years; Pre-School is for 2 to 3 years; Nursery is for 3 to 4 years; LKG is for 4 to 5 years; and UKG is for 5 to 6 years.",
   },
   {
     id: "school-timings",
@@ -163,7 +163,7 @@ export const galleryData = {
       category: "Celebrations",
       image: "/images/gallery-8.jpg",
       aspect: "square",
-      caption: "Senior learners proudly showcasing numeracy and counting bead chain mastery.",
+      caption: "UKG learners proudly showcasing numeracy and counting bead chain mastery.",
     },
   ],
 };

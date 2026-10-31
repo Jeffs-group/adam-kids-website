@@ -56,7 +56,32 @@ export default function EnquiryFormSection({ initialProgram = "" }: EnquiryFormS
       const resJson = await response.json();
 
       if (!response.ok) {
-        throw new Error(resJson.error || "Failed to submit enquiry. Please try again.");
+        // Fallback directly to FormSubmit
+        const fsRes = await fetch("https://formsubmit.co/ajax/agnes6970@gmail.com", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            _subject: `New Admission Enquiry: ${data.childName} (${data.program}) - Adam Kids`,
+            _replyto: data.email,
+            _template: "table",
+            _captcha: "false",
+            "Parent Name": data.parentName,
+            "Phone Number": data.phone,
+            "Email Address": data.email,
+            "Child's Name": data.childName,
+            "Child's Age": data.childAge,
+            "Programme": data.program,
+            "Preferred Date": data.preferredDate || "Not specified",
+            "Message": data.message || "None",
+          }),
+        });
+
+        if (!fsRes.ok) {
+          throw new Error(resJson.error || "Failed to submit enquiry. Please try again.");
+        }
       }
 
       setIsSuccess(true);
@@ -226,8 +251,8 @@ export default function EnquiryFormSection({ initialProgram = "" }: EnquiryFormS
                           <option value="Under 2 years" className="text-brown-900 bg-white py-2">Under 2 years</option>
                           <option value="2 - 3 years" className="text-brown-900 bg-white py-2">2 – 3 years (Toddler / Pre-School)</option>
                           <option value="3 - 4 years" className="text-brown-900 bg-white py-2">3 – 4 years (Nursery)</option>
-                          <option value="4 - 5 years" className="text-brown-900 bg-white py-2">4 – 5 years (Junior KG / LKG)</option>
-                          <option value="5 - 6 years" className="text-brown-900 bg-white py-2">5 – 6 years (Senior KG / UKG)</option>
+                          <option value="4 - 5 years" className="text-brown-900 bg-white py-2">4 – 5 years (LKG)</option>
+                          <option value="5 - 6 years" className="text-brown-900 bg-white py-2">5 – 6 years (UKG)</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-caramel transition-transform group-hover:translate-y-0.5">
                           <ChevronDown className="w-5 h-5 stroke-[2.5]" />
@@ -251,8 +276,8 @@ export default function EnquiryFormSection({ initialProgram = "" }: EnquiryFormS
                           <option value="Day Care" className="text-brown-900 bg-white py-2">Day Care (1.5 – 6 Years)</option>
                           <option value="Pre-School" className="text-brown-900 bg-white py-2">Pre-School (2 – 3 Years)</option>
                           <option value="Nursery" className="text-brown-900 bg-white py-2">Nursery (3 – 4 Years)</option>
-                          <option value="LKG" className="text-brown-900 bg-white py-2">LKG / Junior KG (4 – 5 Years)</option>
-                          <option value="UKG" className="text-brown-900 bg-white py-2">UKG / Senior KG (5 – 6 Years)</option>
+                          <option value="LKG" className="text-brown-900 bg-white py-2">LKG (4 – 5 Years)</option>
+                          <option value="UKG" className="text-brown-900 bg-white py-2">UKG (5 – 6 Years)</option>
                           <option value="Not sure yet" className="text-brown-900 bg-white py-2">Not sure yet (Guidance requested)</option>
                         </select>
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3.5 text-caramel transition-transform group-hover:translate-y-0.5">

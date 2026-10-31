@@ -9,6 +9,7 @@ import Button from "@/components/ui/Button";
 import WaveDivider from "@/components/ui/WaveDivider";
 import Reveal from "@/components/ui/Reveal";
 import { programsData } from "@/data/programs";
+import { schoolContact } from "@/data/nav";
 
 export default function ProgramsHero() {
   const shouldReduceMotion = useReducedMotion();
@@ -34,10 +35,19 @@ export default function ProgramsHero() {
           {/* Left Column: Headline and Paragraph */}
           <div className="lg:col-span-7 flex flex-col items-start text-left">
             <Reveal variant="fade-up">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-butter/70 border border-caramel/25 text-brown-900 text-xs sm:text-sm font-semibold shadow-xs mb-6">
-                <MapPin className="w-3.5 h-3.5 text-caramel flex-shrink-0" />
+              <a
+                href={schoolContact.googleMapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-butter/80 hover:bg-butter border border-caramel/25 hover:border-caramel text-brown-900 text-xs sm:text-sm font-semibold shadow-xs mb-6 transition-all hover:scale-102 group cursor-pointer"
+                title="View Adam Kids School, Shanthinagar on Google Maps"
+              >
+                <MapPin className="w-3.5 h-3.5 text-caramel flex-shrink-0 transition-transform group-hover:scale-125 group-hover:-translate-y-0.5" />
                 <span>{hero.chip}</span>
-              </div>
+                <span className="text-[11px] font-bold text-caramel group-hover:underline ml-0.5">
+                  • View on Map ↗
+                </span>
+              </a>
             </Reveal>
 
             <div className="mb-6">

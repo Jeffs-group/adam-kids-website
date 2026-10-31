@@ -13,10 +13,11 @@ export default function ContactInfoCards() {
     {
       title: "Visit Us",
       value: schoolContact.fullAddress,
-      subtext: "Heart of Shanthinagar",
+      subtext: "Heart of Shanthinagar • Open Maps ↗",
       color: "bg-[#DCE8D4] border-[#c2d4b6]",
       icon: MapPin,
-      href: "#map",
+      href: schoolContact.googleMapsUrl,
+      external: true,
     },
     {
       title: "Call Us",
@@ -99,6 +100,8 @@ export default function ContactInfoCards() {
                 <a
                   key={card.title}
                   href={card.href}
+                  target={"external" in card && card.external ? "_blank" : undefined}
+                  rel={"external" in card && card.external ? "noopener noreferrer" : undefined}
                   className="block h-full focus-visible:outline-caramel rounded-[28px]"
                 >
                   {cardContent}

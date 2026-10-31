@@ -55,7 +55,7 @@ const schoolJsonLd = {
   "description":
     "An inviting Montessori school in Shanthinagar, Bangalore where children learn, explore, create, and grow at their own pace.",
   "url": "https://www.adamkidsindia.com",
-  "telephone": "+91 88610 83201",
+  "telephone": "+91 93532 42432",
   "email": "hello@adamkidsindia.com",
   "address": {
     "@type": "PostalAddress",
@@ -75,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate icon" href="/favicon.ico" />
