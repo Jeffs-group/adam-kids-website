@@ -163,9 +163,14 @@ export default function Footer({ variant }: FooterProps = {}) {
             <span className="hidden sm:inline text-brown-900/30">|</span>
             <span>
               Developed by{" "}
-              <span className="font-semibold text-brown-900">
+              <a
+                href="https://bethlix.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-brown-900 hover:text-caramel underline decoration-caramel/40 hover:decoration-caramel underline-offset-2 transition-colors"
+              >
                 Bethlix Technologies Pvt Ltd
-              </span>
+              </a>
             </span>
           </div>
         </div>
