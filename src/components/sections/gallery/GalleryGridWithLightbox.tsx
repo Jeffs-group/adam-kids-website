@@ -1,20 +1,43 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
-import { galleryData } from "@/data/faq";
+import { galleryData } from "@/data/gallery";
 import { standardTransition } from "@/lib/motion";
+
+const INITIAL_PAGE_SIZE = 24;
 
 export default function GalleryGridWithLightbox() {
   const shouldReduceMotion = useReducedMotion();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [visibleCount, setVisibleCount] = useState<number>(INITIAL_PAGE_SIZE);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const filteredItems = galleryData.items.filter((item) =>
-    selectedCategory === "All" ? true : item.category === selectedCategory
-  );
+  const filteredItems = useMemo(() => {
+    return galleryData.items.filter((item) =>
+      selectedCategory === "All" ? true : item.category === selectedCategory
+    );
+  }, [selectedCategory]);
+
+  // Photo counts per category
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { All: galleryData.items.length };
+    galleryData.items.forEach((item) => {
+      counts[item.category] = (counts[item.category] || 0) + 1;
+    });
+    return counts;
+  }, []);
+
+  const handleCategoryChange = (cat: string) => {
+    setSelectedCategory(cat);
+    setVisibleCount(cat === "All" ? INITIAL_PAGE_SIZE : 36);
+  };
+
+  const visibleItems = useMemo(() => {
+    return filteredItems.slice(0, visibleCount);
+  }, [filteredItems, visibleCount]);
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -66,19 +89,29 @@ export default function GalleryGridWithLightbox() {
         <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mb-12 md:mb-16">
           {galleryData.categories.map((cat) => {
             const isSelected = selectedCategory === cat;
+            const count = categoryCounts[cat] || 0;
 
             return (
               <button
                 key={cat}
                 type="button"
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full font-body font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer shadow-xs focus-visible:outline-caramel ${
+                onClick={() => handleCategoryChange(cat)}
+                className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full font-body font-bold text-xs sm:text-sm tracking-wide transition-all cursor-pointer shadow-xs focus-visible:outline-caramel flex items-center gap-2 ${
                   isSelected
                     ? "bg-brown-900 text-cream shadow-soft scale-105"
                     : "bg-white text-brown-900 border border-brown-900/10 hover:border-caramel hover:bg-cream"
                 }`}
               >
-                {cat}
+                <span>{cat}</span>
+                <span
+                  className={`text-[10px] px-2 py-0.5 rounded-full font-bold transition-colors ${
+                    isSelected
+                      ? "bg-caramel text-white"
+                      : "bg-brown-900/10 text-brown-900/70"
+                  }`}
+                >
+                  {count}
+                </span>
               </button>
             );
           })}
@@ -90,7 +123,7 @@ export default function GalleryGridWithLightbox() {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
         >
           <AnimatePresence mode="popLayout">
-            {filteredItems.map((item, index) => {
+            {visibleItems.map((item, index) => {
               const heightClass =
                 item.aspect === "tall"
                   ? "h-[360px] sm:h-[420px]"
@@ -139,6 +172,29 @@ export default function GalleryGridWithLightbox() {
             })}
           </AnimatePresence>
         </motion.div>
+
+        {/* Load More & Show All Action Buttons */}
+        {visibleCount < filteredItems.length && (
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mt-12 md:mt-16">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((prev) => prev + INITIAL_PAGE_SIZE)}
+              className="px-8 py-3.5 rounded-full bg-brown-900 hover:bg-brown-800 text-cream font-heading font-bold text-sm shadow-soft hover:shadow-soft-lg hover:scale-102 transition-all cursor-pointer flex items-center gap-2"
+            >
+              <span>Load More Photos</span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 text-cream font-bold">
+                +{Math.min(INITIAL_PAGE_SIZE, filteredItems.length - visibleCount)}
+              </span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setVisibleCount(filteredItems.length)}
+              className="px-6 py-3.5 rounded-full bg-white hover:bg-cream border border-brown-900/15 text-brown-900 font-heading font-bold text-sm shadow-xs transition-all cursor-pointer"
+            >
+              Show All ({filteredItems.length})
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Lightbox Modal */}
@@ -237,4 +293,3 @@ export default function GalleryGridWithLightbox() {
     </section>
   );
 }
-
