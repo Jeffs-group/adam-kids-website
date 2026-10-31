@@ -49,6 +49,13 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
       return;
     }
 
+    // On mobile touch devices, use native momentum scrolling to prevent any touch hijacking or screen freeze
+    const isTouchDevice =
+      window.matchMedia("(pointer: coarse)").matches || "ontouchstart" in window;
+    if (isTouchDevice) {
+      return;
+    }
+
     const lenis = new Lenis({
       duration: 1.1,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

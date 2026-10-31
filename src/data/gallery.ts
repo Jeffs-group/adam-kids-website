@@ -5,6 +5,7 @@ export interface GalleryItem {
   image: string;
   aspect: "tall" | "wide" | "square";
   caption: string;
+  mediaType?: "image" | "video";
 }
 
 export const galleryCategories = [
@@ -14,8 +15,8 @@ export const galleryCategories = [
   "Orange Day",
   "Yellow Day",
   "Janmashtami",
-  "Testing Activity",
-  "Classroom",
+  "Independence Day",
+  "Testing Activity"
 ] as const;
 
 export type GalleryCategory = (typeof galleryCategories)[number];
@@ -26,81 +27,18 @@ export const galleryData = {
     headlinePart1: "Moments From",
     headlineHighlight: "Our Days",
     paragraph:
-      "Explore joyful glimpses of real campus life at Adam Kids — from vibrant color celebrations like Fruit Day, Green Day, Orange Day, and Yellow Day, to festive Janmashtami celebrations, hands-on sensory taste testing activities, and daily Montessori discovery.",
+      "Explore real visual memories and live video clips from Adam Kids — from vibrant color celebrations like Fruit Day, Green Day, Orange Day, and Yellow Day, to patriotic Independence Day festivities, cultural Janmashtami celebrations, and sensory taste testing activities.",
   },
   categories: galleryCategories,
   items: [
-  {
-    "id": "gal-class-1",
-    "title": "Concentration with the Pink Tower",
-    "category": "Classroom",
-    "image": "/images/gallery-1.jpg",
-    "aspect": "tall",
-    "caption": "A young learner discovering volume and spatial dimensions."
-  },
-  {
-    "id": "gal-class-2",
-    "title": "Finger Painting and Color Mixing",
-    "category": "Classroom",
-    "image": "/images/gallery-2.jpg",
-    "aspect": "wide",
-    "caption": "Creative sensory expression through vibrant non-toxic watercolors."
-  },
-  {
-    "id": "gal-class-3",
-    "title": "Morning Circle & Musical Rhythm",
-    "category": "Classroom",
-    "image": "/images/gallery-3.jpg",
-    "aspect": "square",
-    "caption": "Joyful group socialization, folk singing, and rhythm exercises."
-  },
-  {
-    "id": "gal-class-4",
-    "title": "Sensory Language & Phonics Tracing",
-    "category": "Classroom",
-    "image": "/images/gallery-4.jpg",
-    "aspect": "wide",
-    "caption": "Tracing sandpaper letter insets to connect visual phonetics with touch."
-  },
-  {
-    "id": "gal-class-5",
-    "title": "Warm Campus Greetings & Community",
-    "category": "Classroom",
-    "image": "/images/gallery-5.jpg",
-    "aspect": "square",
-    "caption": "Facilitators warmly greeting little ones as they arrive each morning."
-  },
-  {
-    "id": "gal-class-6",
-    "title": "Sensory Garden Courtyard Exploration",
-    "category": "Classroom",
-    "image": "/images/gallery-6.jpg",
-    "aspect": "tall",
-    "caption": "Watering fragrant mint, basil, and rosemary in our outdoor nature atelier."
-  },
-  {
-    "id": "gal-class-7",
-    "title": "Hands-on Toddler Puzzles & Shape Exploration",
-    "category": "Classroom",
-    "image": "/images/gallery-7.jpg",
-    "aspect": "wide",
-    "caption": "Toddlers exploring geometric knobbed puzzles and sorting cylinders."
-  },
-  {
-    "id": "gal-class-8",
-    "title": "School Readiness & Early Mathematics",
-    "category": "Classroom",
-    "image": "/images/gallery-8.jpg",
-    "aspect": "square",
-    "caption": "UKG learners proudly showcasing numeracy and counting bead chain mastery."
-  },
   {
     "id": "gal-fruitday-1",
     "title": "Fruit Day Celebration & Sharing",
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.38 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-2",
@@ -108,7 +46,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.39 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-3",
@@ -116,7 +55,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.39 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-4",
@@ -124,7 +64,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.39 PM.jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-5",
@@ -132,7 +73,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.40 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-6",
@@ -140,7 +82,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.40 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-7",
@@ -148,7 +91,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.40 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-8",
@@ -156,7 +100,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.41 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-9",
@@ -164,7 +109,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.41 PM (2).jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-10",
@@ -172,7 +118,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.41 PM (3).jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-11",
@@ -180,7 +127,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.41 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-12",
@@ -188,7 +136,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.42 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-fruitday-13",
@@ -196,7 +145,8 @@ export const galleryData = {
     "category": "Fruit Day",
     "image": "/images/FruitDay/WhatsApp Image 2026-10-31 at 12.04.42 PM.jpeg",
     "aspect": "wide",
-    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day."
+    "caption": "Children exploring natural aromas, textures, and colorful seasonal fruits during Fruit Day.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-1",
@@ -204,7 +154,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.04 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-2",
@@ -212,7 +163,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.04 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-3",
@@ -220,7 +172,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.04 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-4",
@@ -228,7 +181,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.05 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-5",
@@ -236,7 +190,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.05 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-6",
@@ -244,7 +199,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.05 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-7",
@@ -252,7 +208,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.06 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-8",
@@ -260,7 +217,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.06 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-9",
@@ -268,7 +226,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.06 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-10",
@@ -276,7 +235,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.07 PM (1).jpeg",
     "aspect": "square",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-11",
@@ -284,7 +244,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.07 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-12",
@@ -292,7 +253,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.07 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-13",
@@ -300,7 +262,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.08 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-14",
@@ -308,7 +271,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.08 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-15",
@@ -316,7 +280,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.08 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-16",
@@ -324,7 +289,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.09 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-17",
@@ -332,7 +298,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.09 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-18",
@@ -340,7 +307,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.09 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-19",
@@ -348,7 +316,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.10 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-20",
@@ -356,7 +325,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.10 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-21",
@@ -364,7 +334,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.11 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-22",
@@ -372,7 +343,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.11 PM (2).jpeg",
     "aspect": "wide",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-greenday-23",
@@ -380,7 +352,8 @@ export const galleryData = {
     "category": "Green Day",
     "image": "/images/GreenDay/WhatsApp Image 2026-10-31 at 12.05.11 PM.jpeg",
     "aspect": "tall",
-    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green."
+    "caption": "Little learners discovering botany, nature, and the vibrant beauty of green.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-1",
@@ -388,7 +361,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.43 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-2",
@@ -396,7 +370,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.43 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-3",
@@ -404,7 +379,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.43 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-4",
@@ -412,7 +388,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.44 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-5",
@@ -420,7 +397,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.44 PM (2).jpeg",
     "aspect": "wide",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-6",
@@ -428,7 +406,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.44 PM (3).jpeg",
     "aspect": "wide",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-7",
@@ -436,7 +415,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.44 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-8",
@@ -444,7 +424,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.45 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-9",
@@ -452,7 +433,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.45 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-10",
@@ -460,7 +442,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.45 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-11",
@@ -468,7 +451,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.46 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-12",
@@ -476,7 +460,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.46 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-13",
@@ -484,7 +469,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.47 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-14",
@@ -492,7 +478,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.47 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-15",
@@ -500,7 +487,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.48 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-16",
@@ -508,7 +496,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.48 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-17",
@@ -516,7 +505,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.48 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-18",
@@ -524,7 +514,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.49 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-19",
@@ -532,7 +523,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.49 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-20",
@@ -540,7 +532,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.49 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-21",
@@ -548,7 +541,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.50 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-22",
@@ -556,7 +550,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.50 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-23",
@@ -564,7 +559,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.51 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-24",
@@ -572,7 +568,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.51 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-25",
@@ -580,7 +577,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.51 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-26",
@@ -588,7 +586,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.52 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-27",
@@ -596,7 +595,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.52 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-28",
@@ -604,7 +604,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.52 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-29",
@@ -612,7 +613,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.53 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-30",
@@ -620,7 +622,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.53 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-31",
@@ -628,7 +631,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.53 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-32",
@@ -636,7 +640,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.54 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-33",
@@ -644,7 +649,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.54 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-34",
@@ -652,7 +658,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.54 PM (3).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-35",
@@ -660,7 +667,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.54 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-36",
@@ -668,7 +676,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.55 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-37",
@@ -676,7 +685,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.55 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-38",
@@ -684,7 +694,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.56 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-39",
@@ -692,7 +703,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.56 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-40",
@@ -700,7 +712,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.56 PM (3).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-41",
@@ -708,7 +721,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.56 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-42",
@@ -716,7 +730,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.57 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-43",
@@ -724,7 +739,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.57 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-44",
@@ -732,7 +748,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.57 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-45",
@@ -740,7 +757,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.58 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-46",
@@ -748,7 +766,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.58 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-orangeday-47",
@@ -756,7 +775,8 @@ export const galleryData = {
     "category": "Orange Day",
     "image": "/images/OrangeDay/WhatsApp Image 2026-10-31 at 12.04.58 PM.jpeg",
     "aspect": "tall",
-    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art."
+    "caption": "Children enjoying energetic activities, citrus exploration, and bright orange art.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-1",
@@ -764,7 +784,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.05.15 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-2",
@@ -772,7 +793,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.05.16 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-3",
@@ -780,7 +802,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.05.20 PM.jpeg",
     "aspect": "wide",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-4",
@@ -788,7 +811,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.05.26 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-5",
@@ -796,7 +820,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.06.13 PM.jpeg",
     "aspect": "wide",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-6",
@@ -804,7 +829,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.06.16 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-7",
@@ -812,7 +838,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.45 PM (1).jpeg",
     "aspect": "wide",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-8",
@@ -820,7 +847,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.45 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-9",
@@ -828,7 +856,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.46 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-10",
@@ -836,7 +865,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.46 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-11",
@@ -844,7 +874,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.46 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-12",
@@ -852,7 +883,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.47 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-13",
@@ -860,7 +892,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.48 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-14",
@@ -868,7 +901,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.49 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-15",
@@ -876,7 +910,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.50 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-16",
@@ -884,7 +919,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.08.52 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-17",
@@ -892,7 +928,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.09.17 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-18",
@@ -900,7 +937,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.13.04 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-19",
@@ -908,7 +946,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.13.13 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-20",
@@ -916,7 +955,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.16.26 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-21",
@@ -924,7 +964,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.16.26 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-22",
@@ -932,7 +973,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.16.27 PM (1).jpeg",
     "aspect": "square",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-23",
@@ -940,7 +982,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.16.27 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-yellowday-24",
@@ -948,7 +991,8 @@ export const galleryData = {
     "category": "Yellow Day",
     "image": "/images/YellowDay/WhatsApp Image 2026-10-31 at 12.16.27 PM.jpeg",
     "aspect": "tall",
-    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery."
+    "caption": "A bright, sunny celebration of warmth, optimism, and yellow color discovery.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-1",
@@ -956,7 +1000,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.04.59 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-2",
@@ -964,7 +1009,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.04.59 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-3",
@@ -972,7 +1018,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.04.59 PM.jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-4",
@@ -980,7 +1027,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.00 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-5",
@@ -988,7 +1036,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.00 PM.jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-6",
@@ -996,7 +1045,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.01 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-7",
@@ -1004,7 +1054,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.01 PM.jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-8",
@@ -1012,7 +1063,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.02 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-9",
@@ -1020,7 +1072,8 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.02 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
   },
   {
     "id": "gal-testingactivity-10",
@@ -1028,7 +1081,26 @@ export const galleryData = {
     "category": "Testing Activity",
     "image": "/images/TestingActivity/WhatsApp Image 2026-10-31 at 12.05.02 PM.jpeg",
     "aspect": "tall",
-    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors."
+    "caption": "Montessori gustatory exploration helping children distinguish sweet, sour, salty, and savory flavors.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-testingactivity-vid-1",
+    "title": "Testing Activity Live Video Clip #1",
+    "category": "Testing Activity",
+    "image": "/images/TestingActivity/WhatsApp Video 2026-10-31 at 12.05.03 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Testing Activity celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-testingactivity-vid-2",
+    "title": "Testing Activity Live Video Clip #2",
+    "category": "Testing Activity",
+    "image": "/images/TestingActivity/WhatsApp Video 2026-10-31 at 12.05.03 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Testing Activity celebration.",
+    "mediaType": "video"
   },
   {
     "id": "gal-janmashtami-1",
@@ -1036,7 +1108,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.47 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-2",
@@ -1044,7 +1117,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.48 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-3",
@@ -1052,7 +1126,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.49 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-4",
@@ -1060,7 +1135,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.50 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-5",
@@ -1068,7 +1144,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.50 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-6",
@@ -1076,7 +1153,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.51 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-7",
@@ -1084,7 +1162,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.52 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-8",
@@ -1092,7 +1171,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.52 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-9",
@@ -1100,7 +1180,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.53 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-10",
@@ -1108,7 +1189,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.54 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-11",
@@ -1116,7 +1198,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.55 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-12",
@@ -1124,7 +1207,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.56 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-13",
@@ -1132,7 +1216,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.57 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-14",
@@ -1140,7 +1225,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.58 PM (1).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-15",
@@ -1148,7 +1234,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.58 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-16",
@@ -1156,7 +1243,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.16.59 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-17",
@@ -1164,7 +1252,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.00 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-18",
@@ -1172,7 +1261,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.01 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-19",
@@ -1180,7 +1270,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.02 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-20",
@@ -1188,7 +1279,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.03 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-21",
@@ -1196,7 +1288,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.04 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-22",
@@ -1204,7 +1297,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.05 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-23",
@@ -1212,7 +1306,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.06 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-24",
@@ -1220,7 +1315,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.07 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-25",
@@ -1228,7 +1324,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.08 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-26",
@@ -1236,7 +1333,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.09 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-27",
@@ -1244,7 +1342,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.09 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-28",
@@ -1252,7 +1351,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.10 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-29",
@@ -1260,7 +1360,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.11 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-30",
@@ -1268,7 +1369,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.12 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-31",
@@ -1276,7 +1378,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.13 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-32",
@@ -1284,7 +1387,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.17.13 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-33",
@@ -1292,7 +1396,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.18 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-34",
@@ -1300,7 +1405,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.19 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-35",
@@ -1308,7 +1414,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.19 PM (2).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-36",
@@ -1316,7 +1423,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.19 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-37",
@@ -1324,7 +1432,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.20 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-38",
@@ -1332,7 +1441,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.20 PM (2).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-39",
@@ -1340,7 +1450,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.20 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-40",
@@ -1348,7 +1459,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.21 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-41",
@@ -1356,7 +1468,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.21 PM (2).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-42",
@@ -1364,7 +1477,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.21 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-43",
@@ -1372,7 +1486,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.22 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-44",
@@ -1380,7 +1495,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.22 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-45",
@@ -1388,7 +1504,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.22 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-46",
@@ -1396,7 +1513,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.23 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-47",
@@ -1404,7 +1522,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.23 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-48",
@@ -1412,7 +1531,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.23 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-49",
@@ -1420,7 +1540,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.24 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-50",
@@ -1428,7 +1549,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.24 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-51",
@@ -1436,7 +1558,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.25 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-52",
@@ -1444,7 +1567,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.25 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-53",
@@ -1452,7 +1576,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.25 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-54",
@@ -1460,7 +1585,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.26 PM (1).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-55",
@@ -1468,7 +1594,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.26 PM (2).jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-56",
@@ -1476,7 +1603,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.26 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-57",
@@ -1484,7 +1612,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.27 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-58",
@@ -1492,7 +1621,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.27 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-59",
@@ -1500,7 +1630,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.28 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-60",
@@ -1508,7 +1639,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.28 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-61",
@@ -1516,7 +1648,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.28 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-62",
@@ -1524,7 +1657,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.29 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-63",
@@ -1532,7 +1666,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.29 PM (2).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-64",
@@ -1540,7 +1675,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.29 PM (3).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-65",
@@ -1548,7 +1684,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.29 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-66",
@@ -1556,7 +1693,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.30 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-67",
@@ -1564,7 +1702,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.30 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-68",
@@ -1572,7 +1711,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.31 PM.jpeg",
     "aspect": "square",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-69",
@@ -1580,7 +1720,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.32 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-70",
@@ -1588,7 +1729,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.32 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-71",
@@ -1596,7 +1738,8 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.33 PM (1).jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
   },
   {
     "id": "gal-janmashtami-72",
@@ -1604,7 +1747,836 @@ export const galleryData = {
     "category": "Janmashtami",
     "image": "/images/Janmashtami/WhatsApp Image 2026-10-31 at 12.19.33 PM.jpeg",
     "aspect": "tall",
-    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy."
+    "caption": "Rich cultural celebration of Janmashtami with traditional attire, music, crafts, and festive joy.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-1",
+    "title": "Independence Day Flag Hoisting & Pride",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.49 PM.jpeg",
+    "aspect": "wide",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-2",
+    "title": "Tricolor Attire & Patriotic Joy",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.50 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-3",
+    "title": "Little National Heroes & Freedom Fighters",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.50 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-4",
+    "title": "Tricolor Saffron, White & Green Art",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.50 PM.jpeg",
+    "aspect": "wide",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-5",
+    "title": "Patriotic March & Saluting the Flag",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.51 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-6",
+    "title": "Tricolor Pinwheel & Badge Craft",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.51 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-7",
+    "title": "National Anthem & Choral Harmony",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.51 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-8",
+    "title": "Cultural Performances by Little Ones",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.52 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-9",
+    "title": "Tricolor Flower & Ribbon Presentation",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.52 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-10",
+    "title": "Independence Day Celebration Smiles",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.52 PM (3).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-11",
+    "title": "Unity & Brotherhood in the Classroom",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.52 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-12",
+    "title": "Tricolor Fruit Salad & Food Art",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.53 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-13",
+    "title": "Patriotic Dance & Musical Rhythm",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.53 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-14",
+    "title": "Classroom Decorated in National Colors",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.53 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-15",
+    "title": "Proud Little Citizens of India",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.54 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-16",
+    "title": "Independence Day Celebration #16",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.54 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-17",
+    "title": "Independence Day Celebration #17",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.54 PM (3).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-18",
+    "title": "Independence Day Celebration #18",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.54 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-19",
+    "title": "Independence Day Celebration #19",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.55 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-20",
+    "title": "Independence Day Celebration #20",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.55 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-21",
+    "title": "Independence Day Celebration #21",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.55 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-22",
+    "title": "Independence Day Celebration #22",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.56 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-23",
+    "title": "Independence Day Celebration #23",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.56 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-24",
+    "title": "Independence Day Celebration #24",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.56 PM (3).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-25",
+    "title": "Independence Day Celebration #25",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.56 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-26",
+    "title": "Independence Day Celebration #26",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.57 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-27",
+    "title": "Independence Day Celebration #27",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.57 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-28",
+    "title": "Independence Day Celebration #28",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.57 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-29",
+    "title": "Independence Day Celebration #29",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.58 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-30",
+    "title": "Independence Day Celebration #30",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.58 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-31",
+    "title": "Independence Day Celebration #31",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.58 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-32",
+    "title": "Independence Day Celebration #32",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.59 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-33",
+    "title": "Independence Day Celebration #33",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.59 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-34",
+    "title": "Independence Day Celebration #34",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.30.59 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-35",
+    "title": "Independence Day Celebration #35",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.00 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-36",
+    "title": "Independence Day Celebration #36",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.00 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-37",
+    "title": "Independence Day Celebration #37",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.00 PM (3).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-38",
+    "title": "Independence Day Celebration #38",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.00 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-39",
+    "title": "Independence Day Celebration #39",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.01 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-40",
+    "title": "Independence Day Celebration #40",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.01 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-41",
+    "title": "Independence Day Celebration #41",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.01 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-42",
+    "title": "Independence Day Celebration #42",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.02 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-43",
+    "title": "Independence Day Celebration #43",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.02 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-44",
+    "title": "Independence Day Celebration #44",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.02 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-45",
+    "title": "Independence Day Celebration #45",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.03 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-46",
+    "title": "Independence Day Celebration #46",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.03 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-47",
+    "title": "Independence Day Celebration #47",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.04 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-48",
+    "title": "Independence Day Celebration #48",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.04 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-49",
+    "title": "Independence Day Celebration #49",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.04 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-50",
+    "title": "Independence Day Celebration #50",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.05 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-51",
+    "title": "Independence Day Celebration #51",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.05 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-52",
+    "title": "Independence Day Celebration #52",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.05 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-53",
+    "title": "Independence Day Celebration #53",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.06 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-54",
+    "title": "Independence Day Celebration #54",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.06 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-55",
+    "title": "Independence Day Celebration #55",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.06 PM (3).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-56",
+    "title": "Independence Day Celebration #56",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.06 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-57",
+    "title": "Independence Day Celebration #57",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.07 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-58",
+    "title": "Independence Day Celebration #58",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.07 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-59",
+    "title": "Independence Day Celebration #59",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.07 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-60",
+    "title": "Independence Day Celebration #60",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.08 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-61",
+    "title": "Independence Day Celebration #61",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.08 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-62",
+    "title": "Independence Day Celebration #62",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.09 PM (1).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-63",
+    "title": "Independence Day Celebration #63",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.09 PM (2).jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-64",
+    "title": "Independence Day Celebration #64",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.09 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-65",
+    "title": "Independence Day Celebration #65",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.10 PM (1).jpeg",
+    "aspect": "wide",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-66",
+    "title": "Independence Day Celebration #66",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.10 PM (2).jpeg",
+    "aspect": "wide",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-67",
+    "title": "Independence Day Celebration #67",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Image 2026-10-31 at 12.31.10 PM.jpeg",
+    "aspect": "tall",
+    "caption": "Celebrating India's Independence Day with patriotic fervor, tricolor dress, flag hoisting, and joyous cultural activities.",
+    "mediaType": "image"
+  },
+  {
+    "id": "gal-independenceday-vid-1",
+    "title": "Independence Day Live Video Clip #1",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.11 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-2",
+    "title": "Independence Day Live Video Clip #2",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.11 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-3",
+    "title": "Independence Day Live Video Clip #3",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.11 PM (3).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-4",
+    "title": "Independence Day Live Video Clip #4",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.11 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-5",
+    "title": "Independence Day Live Video Clip #5",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.12 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-6",
+    "title": "Independence Day Live Video Clip #6",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.12 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-7",
+    "title": "Independence Day Live Video Clip #7",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.12 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-8",
+    "title": "Independence Day Live Video Clip #8",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.13 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-9",
+    "title": "Independence Day Live Video Clip #9",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.13 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-10",
+    "title": "Independence Day Live Video Clip #10",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.13 PM (3).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-11",
+    "title": "Independence Day Live Video Clip #11",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.13 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-12",
+    "title": "Independence Day Live Video Clip #12",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.14 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-13",
+    "title": "Independence Day Live Video Clip #13",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.14 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-14",
+    "title": "Independence Day Live Video Clip #14",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.14 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-15",
+    "title": "Independence Day Live Video Clip #15",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.15 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-16",
+    "title": "Independence Day Live Video Clip #16",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.15 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-17",
+    "title": "Independence Day Live Video Clip #17",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.15 PM (3).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-18",
+    "title": "Independence Day Live Video Clip #18",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.15 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-19",
+    "title": "Independence Day Live Video Clip #19",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.16 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-20",
+    "title": "Independence Day Live Video Clip #20",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.16 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-21",
+    "title": "Independence Day Live Video Clip #21",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.16 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-22",
+    "title": "Independence Day Live Video Clip #22",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.17 PM (1).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-23",
+    "title": "Independence Day Live Video Clip #23",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.17 PM (2).mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-24",
+    "title": "Independence Day Live Video Clip #24",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.17 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
+  },
+  {
+    "id": "gal-independenceday-vid-25",
+    "title": "Independence Day Live Video Clip #25",
+    "category": "Independence Day",
+    "image": "/images/IndependenceDay/WhatsApp Video 2026-10-31 at 12.31.18 PM.mp4",
+    "aspect": "tall",
+    "caption": "Watch live video highlights from Independence Day celebration.",
+    "mediaType": "video"
   }
 ] as GalleryItem[],
 };

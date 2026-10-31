@@ -3,11 +3,14 @@
 import React, { useState, useEffect, useCallback, useMemo } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence, useReducedMotion } from "motion/react";
-import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, ZoomIn, Play, Film } from "lucide-react";
 import { galleryData } from "@/data/gallery";
 import { standardTransition } from "@/lib/motion";
 
 const INITIAL_PAGE_SIZE = 24;
+
+const isVideoItem = (item: { mediaType?: string; image: string }) =>
+  item.mediaType === "video" || /\.(mp4|webm|mov|m4v)$/i.test(item.image);
 
 export default function GalleryGridWithLightbox() {
   const shouldReduceMotion = useReducedMotion();
@@ -21,7 +24,7 @@ export default function GalleryGridWithLightbox() {
     );
   }, [selectedCategory]);
 
-  // Photo counts per category
+  // Photo/video counts per category
   const categoryCounts = useMemo(() => {
     const counts: Record<string, number> = { All: galleryData.items.length };
     galleryData.items.forEach((item) => {
@@ -131,6 +134,8 @@ export default function GalleryGridWithLightbox() {
                   ? "h-[260px] sm:h-[300px]"
                   : "h-[300px] sm:h-[340px]";
 
+              const isVideo = isVideoItem(item);
+
               return (
                 <motion.div
                   layout
@@ -142,18 +147,45 @@ export default function GalleryGridWithLightbox() {
                   onClick={() => openLightbox(index)}
                   className={`relative rounded-[28px] overflow-hidden shadow-soft group cursor-pointer border border-brown-900/10 bg-sage/20 ${heightClass}`}
                 >
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
-                  />
+                  {isVideo ? (
+                    <div className="relative w-full h-full bg-brown-900/90 flex items-center justify-center overflow-hidden">
+                      <video
+                        src={item.image}
+                        muted
+                        playsInline
+                        preload="metadata"
+                        className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-106 opacity-90 group-hover:opacity-100"
+                      />
+                      {/* Video Pill Tag */}
+                      <div className="absolute top-4 left-4 z-10 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1.5 shadow-xs pointer-events-none">
+                        <Film className="w-3.5 h-3.5 text-butter" />
+                        <span>Video</span>
+                      </div>
+                      {/* Play Button Indicator */}
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
+                        <div className="w-14 h-14 rounded-full bg-white/95 text-brown-900 flex items-center justify-center shadow-soft-xl group-hover:scale-115 group-hover:bg-caramel group-hover:text-white transition-all pl-1 border border-brown-900/10">
+                          <Play className="w-6 h-6 fill-current" />
+                        </div>
+                      </div>
+                    </div>
+                  ) : (
+                    <Image
+                      src={item.image}
+                      alt={item.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 320px"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-106"
+                    />
+                  )}
 
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-brown-900/80 via-brown-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6">
                     <div className="self-end w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white">
-                      <ZoomIn className="w-5 h-5" />
+                      {isVideo ? (
+                        <Play className="w-5 h-5 fill-current" />
+                      ) : (
+                        <ZoomIn className="w-5 h-5" />
+                      )}
                     </div>
                     <div>
                       <span className="inline-block px-2.5 py-1 rounded-full bg-butter font-heading font-bold text-[10px] uppercase tracking-wider text-brown-900 mb-2">
@@ -181,7 +213,7 @@ export default function GalleryGridWithLightbox() {
               onClick={() => setVisibleCount((prev) => prev + INITIAL_PAGE_SIZE)}
               className="px-8 py-3.5 rounded-full bg-brown-900 hover:bg-brown-800 text-cream font-heading font-bold text-sm shadow-soft hover:shadow-soft-lg hover:scale-102 transition-all cursor-pointer flex items-center gap-2"
             >
-              <span>Load More Photos</span>
+              <span>Load More Photos & Videos</span>
               <span className="text-xs px-2 py-0.5 rounded-full bg-white/20 text-cream font-bold">
                 +{Math.min(INITIAL_PAGE_SIZE, filteredItems.length - visibleCount)}
               </span>
@@ -197,7 +229,7 @@ export default function GalleryGridWithLightbox() {
         )}
       </div>
 
-      {/* Lightbox Modal */}
+      {/* Lightbox Modal with Photo & Video Playback */}
       <AnimatePresence>
         {lightboxIndex !== null && filteredItems[lightboxIndex] && (
           <motion.div
@@ -208,7 +240,7 @@ export default function GalleryGridWithLightbox() {
             className="fixed inset-0 z-50 bg-brown-900/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6"
             role="dialog"
             aria-modal="true"
-            aria-label="Image Lightbox"
+            aria-label="Media Lightbox"
           >
             {/* Close Button */}
             <button
@@ -227,7 +259,7 @@ export default function GalleryGridWithLightbox() {
                 e.stopPropagation();
                 showPrev();
               }}
-              aria-label="Previous Image"
+              aria-label="Previous Media"
               className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-caramel z-20"
             >
               <ChevronLeft className="w-6 h-6" />
@@ -240,7 +272,7 @@ export default function GalleryGridWithLightbox() {
                 e.stopPropagation();
                 showNext();
               }}
-              aria-label="Next Image"
+              aria-label="Next Media"
               className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer focus-visible:outline-caramel z-20"
             >
               <ChevronRight className="w-6 h-6" />
@@ -257,16 +289,31 @@ export default function GalleryGridWithLightbox() {
               className="max-w-4xl w-full max-h-[85vh] flex flex-col items-center select-none"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative w-full aspect-[4/3] max-h-[65vh] rounded-[28px] overflow-hidden shadow-2xl bg-black/40">
-                <Image
-                  src={filteredItems[lightboxIndex].image}
-                  alt={filteredItems[lightboxIndex].title}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 90vw, 896px"
-                  className="object-contain"
-                />
-              </div>
+              {isVideoItem(filteredItems[lightboxIndex]) ? (
+                <div className="relative w-full max-h-[65vh] flex items-center justify-center rounded-[28px] overflow-hidden shadow-2xl bg-black">
+                  <video
+                    key={filteredItems[lightboxIndex].image}
+                    src={filteredItems[lightboxIndex].image}
+                    controls
+                    autoPlay
+                    playsInline
+                    className="max-w-full max-h-[65vh] rounded-[28px] object-contain shadow-2xl"
+                  >
+                    Your browser does not support the video tag.
+                  </video>
+                </div>
+              ) : (
+                <div className="relative w-full aspect-[4/3] max-h-[65vh] rounded-[28px] overflow-hidden shadow-2xl bg-black/40">
+                  <Image
+                    src={filteredItems[lightboxIndex].image}
+                    alt={filteredItems[lightboxIndex].title}
+                    fill
+                    priority
+                    sizes="(max-width: 1024px) 90vw, 896px"
+                    className="object-contain"
+                  />
+                </div>
+              )}
 
               {/* Caption and Index */}
               <div className="w-full mt-4 text-center text-white px-4">
