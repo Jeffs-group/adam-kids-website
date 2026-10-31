@@ -1,14 +1,17 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { motion, useScroll, useSpring } from "motion/react";
+import InitialSplashScreen from "@/components/ui/InitialSplashScreen";
 
 interface SmoothScrollProps {
   children: React.ReactNode;
 }
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
+  const pathname = usePathname();
   const lenisRef = useRef<Lenis | null>(null);
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -16,6 +19,25 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
     damping: 24,
     restDelta: 0.001,
   });
+
+  // Ensure browser doesn't restore old scroll positions
+  useEffect(() => {
+    if (typeof window !== "undefined" && "scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+  }, []);
+
+  // On page/tab navigation, immediately scroll to the top of the screen
+  useEffect(() => {
+    if (typeof window !== "undefined" && !window.location.hash) {
+      if (lenisRef.current) {
+        lenisRef.current.scrollTo(0, { immediate: true });
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    }
+  }, [pathname]);
 
   useEffect(() => {
     // Respect prefers-reduced-motion
@@ -53,6 +75,9 @@ export default function SmoothScroll({ children }: SmoothScrollProps) {
 
   return (
     <>
+      {/* Playful initial splash loading screen with animated logo */}
+      <InitialSplashScreen />
+
       {/* Top thin caramel scroll progress indicator */}
       <motion.div
         id="scroll-progress"

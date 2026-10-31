@@ -82,6 +82,11 @@ export default function AboutPreviewSection() {
                   : {
                       y: [0, -6, 0],
                       rotate: [1, 3, 1],
+                      transition: {
+                        duration: 3.5,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                      },
                     }
               }
               whileHover={

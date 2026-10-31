@@ -98,7 +98,7 @@ export const programsData = {
     {
       id: "lkg",
       number: "04",
-      title: "LKG (Junior KG)",
+      title: "LKG",
       age: "4–5 Years",
       color: "butter" as const,
       tagline: "Building Strong Little Foundations",
@@ -116,7 +116,7 @@ export const programsData = {
     {
       id: "ukg",
       number: "05",
-      title: "UKG (Senior KG)",
+      title: "UKG",
       age: "5–6 Years",
       color: "white" as const,
       tagline: "Ready for the Next Big Adventure",
@@ -220,8 +220,8 @@ export const programsData = {
       label: "Contact Us",
       href: "/contact",
     },
-    phoneDisplay: "88610 83201",
-    phoneHref: "tel:+918861083201",
+    phoneDisplay: "93532 42432",
+    phoneHref: "tel:+919353242432",
   },
 };
 

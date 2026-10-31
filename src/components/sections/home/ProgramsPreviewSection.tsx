@@ -86,10 +86,17 @@ export default function ProgramsPreviewSection() {
                   </span>
 
                   <div>
-                    <span className="inline-block px-3 py-1 rounded-full bg-white/60 font-body text-xs font-bold text-brown-900 mb-4 border border-brown-900/10">
-                      Stage {card.number}
-                    </span>
-                    <h3 className="font-heading font-bold text-2xl text-brown-900 mb-3">
+                    <div className="flex flex-wrap items-center gap-2 mb-4">
+                      <span className="inline-block px-3 py-1 rounded-full bg-white/80 font-body text-xs font-bold text-brown-900 border border-brown-900/10 shadow-2xs">
+                        Stage {card.number}
+                      </span>
+                      {"age" in card && (
+                        <span className="inline-block px-2.5 py-1 rounded-full bg-brown-900/10 font-body text-[11px] font-extrabold text-brown-900">
+                          {(card as { age?: string }).age}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="font-heading font-bold text-2xl sm:text-[1.65rem] text-brown-900 mb-2.5 leading-snug">
                       {card.title}
                     </h3>
                     <p className="font-body text-sm sm:text-base text-brown-900/80 leading-relaxed">
