@@ -15,32 +15,44 @@ export default function KidsRunningNavbar() {
       }
     };
     updateWidth();
+
+    let ro: ResizeObserver | null = null;
+    if (typeof ResizeObserver !== "undefined" && trackRef.current) {
+      ro = new ResizeObserver(() => updateWidth());
+      ro.observe(trackRef.current);
+    }
+
     window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
+    window.addEventListener("orientationchange", updateWidth);
+    return () => {
+      if (ro) ro.disconnect();
+      window.removeEventListener("resize", updateWidth);
+      window.removeEventListener("orientationchange", updateWidth);
+    };
   }, []);
 
   if (shouldReduceMotion) return null;
 
-  // Total running distance spanning from right at the logo to the last Enquire Now button
-  const runDistance = trackWidth > 0 ? Math.max(180, trackWidth - 80) : 750;
-  // Natural, playful running pace (~105px/sec)
-  const runDuration = Math.max(6.5, Math.min(10.5, runDistance / 105));
+  // Total running distance spanning from right at the logo across to the finish line
+  const runDistance = trackWidth > 0 ? Math.max(100, trackWidth - 55) : 320;
+  // Natural, playful running pace (~80px/sec, lively on mobile, gentle on desktop)
+  const runDuration = Math.max(3.6, Math.min(10.5, runDistance / 80));
 
   return (
     <div
       ref={trackRef}
       aria-hidden="true"
-      className="absolute left-[135px] sm:left-[150px] lg:left-[170px] right-2 sm:right-4 bottom-0 h-14 pointer-events-none select-none overflow-hidden z-10 hidden md:block"
+      className="absolute left-[96px] sm:left-[122px] md:left-[140px] right-1 sm:right-4 bottom-0 h-12 sm:h-14 pointer-events-none select-none overflow-hidden z-10 block"
     >
-      {/* Playground Track Line running along the bottom from Logo to Enquire Now */}
-      <div className="absolute bottom-[3px] inset-x-2 h-[1px] border-b border-dashed border-caramel/25" />
+      {/* Playground Track Line running along the bottom from Logo across the Navbar */}
+      <div className="absolute bottom-[2px] sm:bottom-[3px] inset-x-1 sm:inset-x-2 h-[1px] border-b border-dashed border-caramel/25" />
 
-      {/* Little Finish Flag at the end next to Enquire Now */}
-      <div className="absolute right-1 bottom-1 flex items-center gap-1 text-[11px] select-none text-caramel/80">
+      {/* Little Finish Flag at the end */}
+      <div className="absolute right-0.5 sm:right-1 bottom-0.5 sm:bottom-1 flex items-center gap-0.5 text-[10px] sm:text-[11px] select-none text-caramel/80">
         <span title="Finish Line">🏁</span>
       </div>
 
-      {/* Group of Kids Running from Logo all the way to Last Enquire Now */}
+      {/* Group of Kids Running across the entire navbar */}
       <motion.div
         key={`run-${trackWidth}`}
         initial={{ x: 0, opacity: 0 }}
@@ -58,12 +70,12 @@ export default function KidsRunningNavbar() {
           opacity: {
             duration: runDuration,
             repeat: Infinity,
-            times: [0, 0.04, 0.92, 0.98, 1],
+            times: [0, 0.05, 0.9, 0.97, 1],
             ease: "easeInOut",
             repeatDelay: 0.4,
           },
         }}
-        className="absolute bottom-1 left-0 flex items-end gap-3.5 h-12 z-10"
+        className="absolute bottom-0.5 sm:bottom-1 left-0 flex items-end gap-2 sm:gap-3.5 h-11 sm:h-12 z-10 scale-[0.72] sm:scale-85 md:scale-100 origin-bottom-left"
       >
         {/* -------------------------------------------------------------
             CHILD 1: GIRL WITH BALLOON

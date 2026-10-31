@@ -9,24 +9,30 @@ export default function InitialSplashScreen() {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
-    // Check if the user has already visited in this session
+    // Check if the user has already visited in this session with safety try-catch for mobile private browsing
     if (typeof window !== "undefined") {
-      const hasVisited = sessionStorage.getItem("adam_kids_splash_shown");
-      if (!hasVisited) {
-        sessionStorage.setItem("adam_kids_splash_shown", "true");
-        const showTimer = setTimeout(() => {
-          setVisible(true);
-        }, 10);
+      try {
+        const isMobile = window.innerWidth < 768;
+        // On small mobile screens, keep splash snappy or skip to ensure immediate screen visibility
+        const hasVisited = sessionStorage.getItem("adam_kids_splash_shown");
+        if (!hasVisited) {
+          sessionStorage.setItem("adam_kids_splash_shown", "true");
+          const showTimer = setTimeout(() => {
+            setVisible(true);
+          }, 10);
 
-        // Dismiss splash after welcome animation
-        const hideTimer = setTimeout(() => {
-          setVisible(false);
-        }, 1450);
+          // Auto-dismiss splash
+          const hideTimer = setTimeout(() => {
+            setVisible(false);
+          }, isMobile ? 950 : 1350);
 
-        return () => {
-          clearTimeout(showTimer);
-          clearTimeout(hideTimer);
-        };
+          return () => {
+            clearTimeout(showTimer);
+            clearTimeout(hideTimer);
+          };
+        }
+      } catch {
+        // Safe fallback if sessionStorage is blocked: initial visible state is already false
       }
     }
   }, []);

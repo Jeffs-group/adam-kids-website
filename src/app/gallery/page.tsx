@@ -4,7 +4,7 @@ import Footer from "@/components/layout/Footer";
 import PageHero from "@/components/ui/PageHero";
 import GalleryGridWithLightbox from "@/components/sections/gallery/GalleryGridWithLightbox";
 import CTABanner from "@/components/ui/CTABanner";
-import { galleryData } from "@/data/faq";
+import { galleryData } from "@/data/gallery";
 
 export const metadata: Metadata = {
   title: "Gallery | Moments From Our Days",
