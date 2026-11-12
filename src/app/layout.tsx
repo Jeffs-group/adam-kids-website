@@ -3,7 +3,7 @@ import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://www.adamkidsindia.com"),
+  metadataBase: new URL("https://www.adamkidsschool.com"),
   title: {
     default: "Adam Kids International Montessori School | Shanthinagar, Bangalore",
     template: "%s | Adam Kids International Montessori School",
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    url: "https://www.adamkidsindia.com",
+    url: "https://www.adamkidsschool.com",
     siteName: "Adam Kids International Montessori School",
     title: "Adam Kids International Montessori School | Shanthinagar, Bangalore",
     description:
@@ -54,9 +54,9 @@ const schoolJsonLd = {
   "alternateName": "Adam Kids",
   "description":
     "An inviting Montessori school in Shanthinagar, Bangalore where children learn, explore, create, and grow at their own pace.",
-  "url": "https://www.adamkidsindia.com",
+  "url": "https://www.adamkidsschool.com",
   "telephone": "+91 93532 42432",
-  "email": "hello@adamkidsindia.com",
+  "email": "agnes6970@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Shanthinagar",
