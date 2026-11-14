@@ -37,8 +37,8 @@ export default function HeroSection() {
   if (isChildrensDayActive) {
     slides.push({
       id: "childrens-day",
-      label: "Children's Day Celebration",
-      badgeTitle: "Children's Day Special",
+      label: "Children's Day Celebration 2026",
+      badgeTitle: "Children's Day 2026",
     });
   }
   slides.push({
