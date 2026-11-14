@@ -439,7 +439,7 @@ export default function ChildrensDayBannerSlide({
         <div className="pt-4 sm:pt-6 pb-2 sm:pb-3 px-4 text-center relative z-20">
           <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-1.5 sm:py-2 rounded-full bg-butter/95 border border-caramel/30 shadow-xs text-brown-900 font-heading font-bold text-sm sm:text-base md:text-lg animate-bounce-in-text">
             <Sparkles className="w-4 h-4 text-caramel flex-shrink-0 animate-spin" style={{ animationDuration: "6s" }} />
-            <span>🎉 Happy Children&apos;s Day Celebration! 🎆</span>
+            <span>🎉 Children&apos;s Day Celebration 2026 🎆</span>
             <Sparkles className="w-4 h-4 text-caramel flex-shrink-0 animate-spin" style={{ animationDuration: "6s" }} />
           </div>
         </div>
@@ -474,7 +474,7 @@ export default function ChildrensDayBannerSlide({
             {/* 6. Date Pill with Diagonal Shine Sweep */}
             <div className="relative overflow-hidden inline-flex items-center gap-2 px-4 sm:px-5 py-2 rounded-full bg-brown-900 text-cream font-heading font-semibold text-xs sm:text-sm shadow-xs">
               <Calendar className="w-4 h-4 text-butter flex-shrink-0" />
-              <span>16th November • Adam&apos;s School</span>
+              <span>16th November 2026 • Adam&apos;s School</span>
               {/* Shimmer sweep bar */}
               <div
                 className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none animate-shine-sweep"
