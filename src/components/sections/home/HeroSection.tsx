@@ -1,37 +1,131 @@
 "use client";
 
-import React, { useState } from "react";
-import Image from "next/image";
-import { motion, useReducedMotion } from "motion/react";
-import { MapPin } from "lucide-react";
-import AnimatedHeadline from "@/components/ui/AnimatedHeadline";
-import Button from "@/components/ui/Button";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "motion/react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import WaveDivider from "@/components/ui/WaveDivider";
-import Reveal from "@/components/ui/Reveal";
 import KidsFloatingElements from "@/components/ui/KidsFloatingElements";
-import { homeContent } from "@/data/content";
-import { schoolContact } from "@/data/nav";
+import ChildrensDayBannerSlide from "./ChildrensDayBannerSlide";
+import MontessoriHeroSlide from "./MontessoriHeroSlide";
+
+// Expiry date for the Children's Day Banner slide (YYYY-MM-DD)
+// Slide auto-hides after 23:59:59 on this date.
+export const CHILDRENS_DAY_EXPIRY = "2026-11-17";
+
+function checkIsChildrensDayActive(): boolean {
+  // Active until end of day (23:59:59) IST on 17 Nov 2026
+  const expiry = new Date(`${CHILDRENS_DAY_EXPIRY}T23:59:59+05:30`);
+  return Date.now() <= expiry.getTime();
+}
 
 export default function HeroSection() {
   const shouldReduceMotion = useReducedMotion();
-  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
-  const { hero } = homeContent;
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
+  const [isPaused, setIsPaused] = useState<boolean>(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (shouldReduceMotion) return;
-    const { clientX, clientY, currentTarget } = e;
-    const { left, top, width, height } = currentTarget.getBoundingClientRect();
-    const x = (clientX - (left + width / 2)) / 30;
-    const y = (clientY - (top + height / 2)) / 30;
-    setMousePos({ x, y });
+  // Compute expiry state directly (avoids cascading effect setState)
+  const isChildrensDayActive = checkIsChildrensDayActive();
+
+  // Build active slides list (Children's Day is Slide 0 when active)
+  interface SlideConfig {
+    id: string;
+    label: string;
+    badgeTitle: string;
+  }
+
+  const slides: SlideConfig[] = [];
+  if (isChildrensDayActive) {
+    slides.push({
+      id: "childrens-day",
+      label: "Children's Day Celebration",
+      badgeTitle: "Children's Day Special",
+    });
+  }
+  slides.push({
+    id: "montessori-hero",
+    label: "Welcome to Adam Kids",
+    badgeTitle: "Montessori Discovery",
+  });
+
+  const totalSlides = slides.length;
+
+  const nextSlide = useCallback(() => {
+    if (totalSlides <= 1) return;
+    setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  }, [totalSlides]);
+
+  const prevSlide = useCallback(() => {
+    if (totalSlides <= 1) return;
+    setCurrentSlide((prev) => (prev === 0 ? totalSlides - 1 : prev - 1));
+  }, [totalSlides]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
+
+  // Auto-play timer: 5 seconds per slide, paused on hover or touch
+  useEffect(() => {
+    if (totalSlides <= 1 || isPaused) return;
+
+    const timer = setInterval(() => {
+      nextSlide();
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, [totalSlides, isPaused, nextSlide]);
+
+  // Touch Swipe Handlers for Mobile
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+    setIsPaused(true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null || touchStartY.current === null) return;
+    const touchEndX = e.changedTouches[0].clientX;
+    const touchEndY = e.changedTouches[0].clientY;
+    const diffX = touchStartX.current - touchEndX;
+    const diffY = touchStartY.current - touchEndY;
+
+    // Minimum swipe threshold of 40px, ensuring horizontal movement is dominant
+    if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 40) {
+      if (diffX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
+
+    touchStartX.current = null;
+    touchStartY.current = null;
+    setIsPaused(false);
+  };
+
+  // Keyboard navigation for carousel
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (totalSlides <= 1) return;
+    if (e.key === "ArrowLeft") prevSlide();
+    if (e.key === "ArrowRight") nextSlide();
   };
 
   return (
     <section
-      onMouseMove={handleMouseMove}
-      className="relative pt-32 pb-20 md:pt-40 md:pb-28 bg-cream overflow-hidden"
+      role="region"
+      aria-roledescription="carousel"
+      aria-label="Home Page Hero Slider"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      onKeyDown={handleKeyDown}
+      tabIndex={0}
+      className="relative pt-28 pb-20 sm:pt-32 md:pt-36 md:pb-28 bg-cream overflow-hidden focus:outline-none"
     >
-      {/* Drifting blurred soft pastel blobs */}
+      {/* Drifting blurred soft pastel blobs in background */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden -z-10">
         <motion.div
           animate={
@@ -74,183 +168,85 @@ export default function HeroSection() {
       {/* Playful Floating Kids Doodles & Elements */}
       <KidsFloatingElements variant="hero" />
 
-      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Text and CTAs */}
-          <div className="lg:col-span-7 flex flex-col items-start text-left">
-            {/* Location Chip with Direct Google Maps Link */}
-            <Reveal variant="fade-up" delay={0.05}>
-              <a
-                href={schoolContact.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-butter/80 hover:bg-butter border border-caramel/25 hover:border-caramel text-brown-900 text-xs sm:text-sm font-semibold shadow-xs mb-6 transition-all hover:scale-102 group cursor-pointer"
-                title="View Adam Kids School, Shanthinagar on Google Maps"
-              >
-                <MapPin className="w-3.5 h-3.5 text-caramel flex-shrink-0 transition-transform group-hover:scale-125 group-hover:-translate-y-0.5" />
-                <span>{hero.chip}</span>
-                <span className="text-[11px] font-bold text-caramel group-hover:underline ml-0.5">
-                  • View on Map ↗
-                </span>
-              </a>
-            </Reveal>
+      {/* Slider Viewport with AnimatePresence */}
+      <div className="relative w-full z-10 px-4 sm:px-6 lg:px-8">
+        <AnimatePresence mode="wait">
+          {slides[currentSlide]?.id === "childrens-day" ? (
+            <motion.div
+              key="childrens-day"
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 20 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.55, ease: "easeInOut" }}
+            >
+              <ChildrensDayBannerSlide isActive={currentSlide === 0} />
+            </motion.div>
+          ) : (
+            <motion.div
+              key="montessori-hero"
+              initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: 20 }}
+              animate={shouldReduceMotion ? { opacity: 1 } : { opacity: 1, x: 0 }}
+              exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, x: -20 }}
+              transition={{ duration: 0.55, ease: "easeInOut" }}
+            >
+              <MontessoriHeroSlide />
+            </motion.div>
+          )}
+        </AnimatePresence>
 
-            {/* H1 with masked reveal */}
-            <div className="mb-6">
-              <AnimatedHeadline
-                part1={hero.headlinePart1}
-                highlight={hero.headlineHighlight}
-                part2={hero.headlinePart2}
-                as="h1"
-                className="font-heading font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4rem] text-brown-900 leading-[1.1] tracking-tight"
-                highlightClassName="text-caramel"
-              />
+        {/* Carousel Navigation Bar: Arrows + Dots */}
+        {totalSlides > 1 && (
+          <div className="flex items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 relative z-20">
+            {/* Prev Arrow Button */}
+            <button
+              type="button"
+              onClick={prevSlide}
+              aria-label="Previous slide"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white border border-brown-900/10 shadow-soft hover:shadow-soft-lg flex items-center justify-center text-brown-900 hover:text-caramel transition-all hover:scale-105 cursor-pointer focus-visible:outline-caramel"
+            >
+              <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
+
+            {/* Indicator Dots */}
+            <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 backdrop-blur-xs border border-brown-900/10 shadow-xs">
+              {slides.map((slide, index) => {
+                const isActive = index === currentSlide;
+                return (
+                  <button
+                    key={slide.id}
+                    type="button"
+                    onClick={() => goToSlide(index)}
+                    aria-label={`Slide ${index + 1}: ${slide.label}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`transition-all duration-300 rounded-full cursor-pointer flex items-center gap-1.5 ${
+                      isActive
+                        ? "w-8 sm:w-9 h-3 bg-brown-900 text-cream"
+                        : "w-3 h-3 bg-brown-900/25 hover:bg-brown-900/50"
+                    }`}
+                  >
+                    <span className="sr-only">{slide.label}</span>
+                  </button>
+                );
+              })}
             </div>
 
-            {/* Paragraph */}
-            <Reveal variant="fade-up" delay={0.25}>
-              <p className="text-base sm:text-lg md:text-xl text-brown-900/80 max-w-xl font-body leading-relaxed mb-8">
-                {hero.paragraph}
-              </p>
-            </Reveal>
-
-            {/* Action Buttons */}
-            <Reveal variant="fade-up" delay={0.35}>
-              <div className="flex flex-wrap items-center gap-4">
-                <Button
-                  href={hero.primaryCta.href}
-                  variant="filled"
-                  size="lg"
-                  withArrow
-                >
-                  {hero.primaryCta.label}
-                </Button>
-                <Button
-                  href={hero.secondaryCta.href}
-                  variant="outline"
-                  size="lg"
-                >
-                  {hero.secondaryCta.label}
-                </Button>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right Column: Kids with Wooden Blocks & Pink Tower in Butter Blob */}
-          <div className="lg:col-span-5 flex justify-center items-center relative">
-            <motion.div
-              initial={shouldReduceMotion ? {} : { scale: 0.8, opacity: 0 }}
-              animate={shouldReduceMotion ? {} : { scale: 1, opacity: 1 }}
-              transition={{
-                type: "spring",
-                stiffness: 85,
-                damping: 18,
-                delay: 0.2,
-              }}
-              style={
-                shouldReduceMotion
-                  ? {}
-                  : {
-                      x: mousePos.x,
-                      y: mousePos.y,
-                    }
-              }
-              className="relative w-full max-w-[440px] aspect-square flex items-center justify-center"
+            {/* Next Arrow Button */}
+            <button
+              type="button"
+              onClick={nextSlide}
+              aria-label="Next slide"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/95 hover:bg-white border border-brown-900/10 shadow-soft hover:shadow-soft-lg flex items-center justify-center text-brown-900 hover:text-caramel transition-all hover:scale-105 cursor-pointer focus-visible:outline-caramel"
             >
-              {/* Organic Butter Blob */}
-              <div className="absolute inset-2 bg-butter rounded-[48%_52%_68%_32%_/_42%_44%_56%_58%] shadow-soft-xl transform -rotate-3 transition-transform" />
-
-              {/* Decorative pastel accents around blob */}
-              <div className="absolute -top-4 -right-4 w-12 h-12 rounded-full bg-sage border-2 border-white/70 shadow-xs" />
-              <div className="absolute -bottom-5 -left-5 w-14 h-14 rounded-full bg-blush border-2 border-white/70 shadow-xs" />
-
-              {/* Gently floating illustration (6s cycle) */}
-              <motion.div
-                animate={
-                  shouldReduceMotion
-                    ? {}
-                    : {
-                        y: [-10, 10, -10],
-                      }
-                }
-                transition={{
-                  repeat: Infinity,
-                  duration: 6,
-                  ease: "easeInOut",
-                }}
-                className="relative z-10 w-[86%] h-[86%] rounded-[36px] overflow-hidden"
-              >
-                <Image
-                  src="/images/hero-kids.png"
-                  alt={hero.imageAlt}
-                  fill
-                  priority
-                  sizes="(max-width: 768px) 100vw, 440px"
-                  className="object-cover transition-transform duration-700 hover:scale-105"
-                />
-              </motion.div>
-
-              {/* Playful Floating Badge 1: Top-Left */}
-              <motion.div
-                animate={
-                  shouldReduceMotion
-                    ? {}
-                    : {
-                        y: [-6, 6, -6],
-                        rotate: [-2, 2, -2],
-                      }
-                }
-                transition={{
-                  repeat: Infinity,
-                  duration: 5,
-                  ease: "easeInOut",
-                }}
-                className="absolute -top-3 -left-2 sm:-left-6 z-20 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-xs border border-brown-900/10 shadow-soft text-xs font-bold text-brown-900 flex items-center gap-2 pointer-events-none"
-              >
-                <span className="w-2 h-2 rounded-full bg-caramel animate-ping" />
-                <span>Authentic Montessori</span>
-              </motion.div>
-
-              {/* Playful Floating Badge 2: Bottom-Right */}
-              <motion.div
-                animate={
-                  shouldReduceMotion
-                    ? {}
-                    : {
-                        y: [6, -6, 6],
-                        rotate: [2, -2, 2],
-                      }
-                }
-                transition={{
-                  repeat: Infinity,
-                  duration: 6,
-                  ease: "easeInOut",
-                  delay: 0.5,
-                }}
-                className="absolute -bottom-4 -right-2 sm:-right-4 z-20 px-3.5 py-2 rounded-2xl bg-white/95 backdrop-blur-xs border border-brown-900/10 shadow-soft text-left flex items-center gap-2.5 pointer-events-none"
-              >
-                <div className="w-7 h-7 rounded-full bg-butter flex items-center justify-center text-brown-900 text-xs shadow-xs">
-                  ✨
-                </div>
-                <div>
-                  <span className="block text-[10px] font-semibold text-brown-900/60 uppercase tracking-wider">
-                    Ages 1.5 – 6 yrs
-                  </span>
-                  <span className="text-xs font-bold text-brown-900">
-                    Child-Led Discovery
-                  </span>
-                </div>
-              </motion.div>
-            </motion.div>
+              <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
+            </button>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Curved wave divider into About section */}
-      <div className="absolute bottom-0 left-0 right-0">
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
         <WaveDivider fill="#FFF8E7" />
       </div>
     </section>
   );
 }
-

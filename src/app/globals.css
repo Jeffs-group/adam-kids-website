@@ -70,3 +70,257 @@ h1, h2, h3, h4, h5, h6 {
   outline: 2px solid #B8814F;
   outline-offset: 3px;
 }
+
+/* =========================================================================
+   Children's Day Banner & Hero Slider Animations (60fps GPU-Accelerated)
+   ========================================================================= */
+
+/* 1. Ken Burns Zoom-Out on Entrance (scale 1.08 -> 1 over 1.2s) */
+@keyframes kenBurnsZoomOut {
+  0% {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-ken-burns {
+  animation: kenBurnsZoomOut 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* 2. Floating Balloons with Left-Right Sway */
+@keyframes balloonFloatLeft1 {
+  0% {
+    transform: translateY(115%) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  48% {
+    transform: translateY(15%) translateX(10px) rotate(3deg);
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-120%) translateX(-8px) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloatLeft2 {
+  0% {
+    transform: translateY(115%) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.88;
+  }
+  50% {
+    transform: translateY(10%) translateX(-12px) rotate(-4deg);
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-120%) translateX(10px) rotate(3deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloatRight1 {
+  0% {
+    transform: translateY(115%) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.9;
+  }
+  48% {
+    transform: translateY(15%) translateX(-10px) rotate(-3deg);
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-120%) translateX(12px) rotate(4deg);
+    opacity: 0;
+  }
+}
+
+@keyframes balloonFloatRight2 {
+  0% {
+    transform: translateY(115%) translateX(0px) rotate(0deg);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.88;
+  }
+  52% {
+    transform: translateY(5%) translateX(14px) rotate(4deg);
+    opacity: 0.95;
+  }
+  90% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateY(-120%) translateX(-10px) rotate(-3deg);
+    opacity: 0;
+  }
+}
+
+.animate-balloon-left-1 {
+  animation: balloonFloatLeft1 13s infinite linear;
+}
+.animate-balloon-left-2 {
+  animation: balloonFloatLeft2 15.5s infinite linear 2.5s;
+}
+.animate-balloon-left-3 {
+  animation: balloonFloatLeft1 14s infinite linear 5s;
+}
+.animate-balloon-left-4 {
+  animation: balloonFloatLeft2 16.5s infinite linear 7.5s;
+}
+.animate-balloon-left-5 {
+  animation: balloonFloatLeft1 13.5s infinite linear 10s;
+}
+.animate-balloon-left-6 {
+  animation: balloonFloatLeft2 17s infinite linear 1.5s;
+}
+.animate-balloon-left-7 {
+  animation: balloonFloatLeft1 14.5s infinite linear 11.5s;
+}
+
+.animate-balloon-right-1 {
+  animation: balloonFloatRight1 14s infinite linear 1s;
+}
+.animate-balloon-right-2 {
+  animation: balloonFloatRight2 16s infinite linear 3.5s;
+}
+.animate-balloon-right-3 {
+  animation: balloonFloatRight1 13.5s infinite linear 6s;
+}
+.animate-balloon-right-4 {
+  animation: balloonFloatRight2 15.5s infinite linear 8.5s;
+}
+.animate-balloon-right-5 {
+  animation: balloonFloatRight1 14.5s infinite linear 11s;
+}
+.animate-balloon-right-6 {
+  animation: balloonFloatRight2 16.5s infinite linear 4s;
+}
+.animate-balloon-right-7 {
+  animation: balloonFloatRight1 15s infinite linear 9s;
+}
+
+/* Cracker Sparkle Twinkle Animation */
+@keyframes crackerSparkle {
+  0%, 100% {
+    transform: scale(0.7) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: scale(1.25) rotate(180deg);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.85));
+  }
+}
+
+.animate-cracker-sparkle {
+  animation: crackerSparkle 2s ease-in-out infinite;
+}
+
+/* 3. Bunting Flags Gentle Swing (±2°) */
+@keyframes buntingSwing {
+  0% {
+    transform: rotate(-2deg);
+  }
+  100% {
+    transform: rotate(2deg);
+  }
+}
+
+.animate-bunting-swing {
+  transform-origin: top right;
+  animation: buntingSwing 3.4s ease-in-out infinite alternate;
+}
+
+/* 4. Text Pop-in with Bounce-in */
+@keyframes bounceInText {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) translateY(-8px);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.08) translateY(2px);
+  }
+  80% {
+    transform: scale(0.96) translateY(-1px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.animate-bounce-in-text {
+  animation: bounceInText 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* 5. Soft Pulse on Chief Guest Pill */
+@keyframes softPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 4px 14px -2px rgba(184, 129, 79, 0.2);
+  }
+  50% {
+    transform: scale(1.025);
+    box-shadow: 0 8px 24px -2px rgba(184, 129, 79, 0.4);
+  }
+}
+
+.animate-soft-pulse {
+  animation: softPulse 2.8s ease-in-out infinite;
+}
+
+/* 6. Diagonal Shine Sweep across Date Pill (every 6s) */
+@keyframes shineSweep {
+  0%, 65% {
+    transform: translateX(-150%) skewX(-20deg);
+  }
+  100% {
+    transform: translateX(250%) skewX(-20deg);
+  }
+}
+
+.animate-shine-sweep {
+  animation: shineSweep 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* 7. Reduced Motion Override */
+@media (prefers-reduced-motion: reduce) {
+  .animate-ken-burns,
+  .animate-balloon-left-1,
+  .animate-balloon-left-2,
+  .animate-balloon-left-3,
+  .animate-balloon-right-1,
+  .animate-balloon-right-2,
+  .animate-balloon-right-3,
+  .animate-bunting-swing,
+  .animate-bounce-in-text,
+  .animate-soft-pulse,
+  .animate-shine-sweep {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
